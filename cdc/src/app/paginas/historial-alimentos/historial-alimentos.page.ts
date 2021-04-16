@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AlimentoService } from '../../Servicios/alimento.service';
+import { Alimentos } from '../../interfaces/alimento';
 
 @Component({
   selector: 'app-historial-alimentos',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HistorialAlimentosPage implements OnInit {
 
-  constructor() { }
+  alimentos:Alimentos[]=[];
+  
+  constructor(private alimentoservices: AlimentoService) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
+      /*this.taskService.getAllTasks()
+      .subscribe(tasks => {
+        console.log(tasks);
+      });*/
 
 }

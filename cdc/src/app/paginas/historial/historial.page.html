@@ -1,11 +1,51 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>Historial</ion-title>
+
+  <!--Agrega color="success" para que se ponga de color verde el toolbar--> 
+  <ion-toolbar color="success">
+
+    <!--Agrega slot="start" para que el icono de regreso se ponga a la derecha-->
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>HISTORIAL</ion-title>
+
   </ion-toolbar>
+
 </ion-header>
 
 <ion-content>
-  <ion-button routerLink='/historial-dietas'>HistorialDieta</ion-button>
-  <ion-button routerLink='/historial-alimentos'>HistorialAlimentos</ion-button>
-  <ion-button routerLink='/inicio'>Inicio</ion-button>
+
+  <Ion-Card class="textoHistorial"> 
+
+    <Ion-Card-Title class="ion-text-center">Historial de alimentos</Ion-Card-Title>
+
+    <!--Agrega class="ion-text-center" para centrar el texto, sin usar css-->
+    <Ion-Card-Content class="ion-text-center">
+    Se recopilan todos los alimentos consumidos de todas las dietas creadas seleccionando un periodo de tiempo.
+
+    </Ion-Card-Content>
+
+    <ion-content class="contenedor">
+      <ion-button routerLink='/historial-alimentos'>Ver Alimentos</ion-button>
+    </ion-content>
+
+  </Ion-Card>
+
+  <Ion-Card class="textoHistorial">
+
+    <Ion-Card-Title class="ion-text-center">Historial de dietas</Ion-Card-Title>
+
+    <Ion-Card-Content class="ion-text-center">
+    Se muestran todas las dietas creadas, las diferentes comidas que contienen y los alimentos que las componen.
+
+   
+
+    </Ion-Card-Content> 
+  <ion-content class="contenedor">
+    <ion-button routerLink='/historial-dietas'>Ver Dietas</ion-button>
+  </ion-content>
+  </Ion-Card>
+
+
 </ion-content>

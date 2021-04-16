@@ -1,9 +1,16 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="success">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/">
+      </ion-back-button>
+    </ion-buttons>
     <ion-title>SeleccionAlimentos</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-button routerLink='/configurar-dieta'>ConfigurarDieta</ion-button>
+  <!--[(ngModel)]="alimentoABuscar" sirve para poder usar el texto ingresado en selccion de alimentos.page.ts, lo que esta entre comillas es el nombre de la variable que contine el texto, le puedes poner el nombre que sea-->
+  <ion-input [(ngModel)]="alimentoABuscar" placeholder="Ingrese el alimento"></ion-input>
+  <!--(click)="ObtenerUnAlimento()" llama a la funcion que creamos en seleccion de alimentos.page.ts-->
+  <ion-button (click)="ObtenerUnAlimento()" >Mostrar alimento</ion-button>
 </ion-content>
