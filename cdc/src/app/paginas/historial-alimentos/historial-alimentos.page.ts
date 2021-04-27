@@ -9,14 +9,27 @@ import { Alimentos } from '../../interfaces/alimento';
 })
 export class HistorialAlimentosPage implements OnInit {
 
-  alimentos:Alimentos[]=[];
+  alimentos: Alimentos[] = [];
   
+  i: number = 0;
+  periodoTiempo: string[] = ["SEMANAL", "MENSUAL", "ANUAL", "GLOBAL"];
+  alimentosSemanalPrueba:string[]=[]
   constructor(private alimentoservices: AlimentoService) { }
 
   ngOnInit() {}
-      /*this.taskService.getAllTasks()
-      .subscribe(tasks => {
-        console.log(tasks);
-      });*/
 
+  Derecha()
+  {
+    if (this.i >= 3)
+      this.i = 0;
+    else
+      this.i++;
+  }
+
+  Izquierda() {
+    if (this.i <= 0)
+      this.i = 3;
+    else
+      this.i--;
+  }
 }

@@ -23,7 +23,7 @@ export class SeleccionAlimentosPage implements OnInit {
   ObtenerUnAlimento() {
     //ObtenerUnAlimento(this.alimentoABuscar) aqui se agrega el alimento que queremos buscar
     this.alimentoservices.ObtenerUnAlimento(this.alimentoABuscar).subscribe
-      (alimentos => { console.log(alimentos) });
+      (alimentos => {console.log(alimentos)});
   }
 
 }

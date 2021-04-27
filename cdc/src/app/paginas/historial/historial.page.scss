@@ -1,11 +1,20 @@
-.textoHistorial{
-    width: 80%;
-    height: 50%;
-    margin: auto;
+.xd{
+    display: flex;
+    align-items: center;
+    height: 100%;
+    background-color: #28ba62;
 }
 
 .contenedor
 {
-    text-align: center;
+    padding: 10%;
 }
+
+.ion-card{
+    width: 10px;
+    box-shadow:none;
+}
+
+
+
 

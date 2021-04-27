@@ -15,37 +15,34 @@
 </ion-header>
 
 <ion-content>
+<div class="xd">
+  <div class="contenedor">
 
-  <Ion-Card class="textoHistorial"> 
+    <ion-card color="success"> 
+      <br>
+      <ion-card-title class="ion-text-center">HISTORIAL DE ALIMENTOS</ion-card-title>
+      <ion-card-content class="ion-text-center">
+        Se recopilan todos los alimentos consumidos de todas las 
+        dietas creadas seleccionando un periodo de tiempo.
+        <br>
+        <ion-button routerLink='/historial-alimentos' color="light" fill="outline"> Ver Alimentos</ion-button>
+      </ion-card-content>
+    </ion-card>
+      <br>
+    <ion-card color="success">
+      <ion-card-title class="ion-text-center">
+        HISTORIAL DE DIETAS
+      </ion-card-title>
+      <ion-card-content class="ion-text-center">
+        Se muestran todas las dietas creadas, las diferentes comidas 
+        que contienen y los alimentos que las componen.
+        <br>
+        <ion-button routerLink='/historial-dietas' color="light" fill="outline">Ver Dietas</ion-button>
+      </ion-card-content>  
+    
+    </ion-card>
 
-    <Ion-Card-Title class="ion-text-center">Historial de alimentos</Ion-Card-Title>
-
-    <!--Agrega class="ion-text-center" para centrar el texto, sin usar css-->
-    <Ion-Card-Content class="ion-text-center">
-    Se recopilan todos los alimentos consumidos de todas las dietas creadas seleccionando un periodo de tiempo.
-
-    </Ion-Card-Content>
-
-    <ion-content class="contenedor">
-      <ion-button routerLink='/historial-alimentos'>Ver Alimentos</ion-button>
-    </ion-content>
-
-  </Ion-Card>
-
-  <Ion-Card class="textoHistorial">
-
-    <Ion-Card-Title class="ion-text-center">Historial de dietas</Ion-Card-Title>
-
-    <Ion-Card-Content class="ion-text-center">
-    Se muestran todas las dietas creadas, las diferentes comidas que contienen y los alimentos que las componen.
-
-   
-
-    </Ion-Card-Content> 
-  <ion-content class="contenedor">
-    <ion-button routerLink='/historial-dietas'>Ver Dietas</ion-button>
-  </ion-content>
-  </Ion-Card>
-
-
+  </div>
+</div>
 </ion-content>
+

@@ -1,5 +1,5 @@
 export interface Alimentos {
-    /*category: string;
+    category: string;
     categoryLabel: string;
     foodId: string;
     image: string;
@@ -8,5 +8,5 @@ export interface Alimentos {
     {
         CHOCDF: string;
         ENERC_KCAL: string;
-    }*/
+    }
 }
