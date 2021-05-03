@@ -1,17 +1,231 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>ConfigurarDieta</ion-title>
+  <ion-toolbar color="success">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/">
+      </ion-back-button>
+    </ion-buttons>
+    <ion-title>CONFIGURARDIETA</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <ion-button routerLink='/inicio'>Inicio</ion-button>
-  <ion-button routerLink='/seleccion-alimentos'>SeleccionDeAlimentos</ion-button>
-  <script src="https://platform.fatsecret.com/js?key=5d7cd424963e4d108a67e8b193ffafae"> </script>
-  <div id="my_container" class="fatsecret_container"> </div>
+<!-- ------------------ -->
+<!-- MODO CONFIGURACION -->
+<!-- ------------------ -->
 
-  <script>
-    fatsecret.setContainer("mi_contenedor");
-    fatsecret.setCanvas("casa");
-  </script>
+<ion-content *ngIf="modo_configuracion">
+  <ion-item>
+    <ion-label>Nombre de la dieta</ion-label>
+  </ion-item>
+  <ion-item>
+    <ion-input [(ngModel)]="nombre_dieta" placeholder="Inserte nombre"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Seleccione las comidas</ion-label>
+  </ion-item>
+  <ion-item>
+    <ion-checkbox color="primary" [(ngModel)]="Desayuno_check"></ion-checkbox>
+    <ion-label>Desayuno</ion-label>
+  </ion-item>
+  <ion-item>
+    <ion-checkbox color="primary" [(ngModel)]="Merienda_check"></ion-checkbox>
+    <ion-label>Merienda</ion-label>
+  </ion-item>
+  <ion-item>
+    <ion-checkbox color="primary" [(ngModel)]="Comida_check"></ion-checkbox>
+    <ion-label>Comida</ion-label>
+  </ion-item>
+  <ion-item>
+    <ion-checkbox color="primary" [(ngModel)]="MediaComida_check"></ion-checkbox>
+    <ion-label>EntreComida</ion-label>
+  </ion-item>
+  <ion-item>
+    <ion-checkbox color="primary" [(ngModel)]="Cena_check"></ion-checkbox>
+    <ion-label>Cena</ion-label>
+  </ion-item>
+  <ion-button (click)="validarHaberEscogidoUnaOpcion()">SeleccionDeAlimentos</ion-button> 
+</ion-content>
+
+<!-- -------------------------- -->
+<!-- MODO SELCCION DE ALIMENTOS -->
+<!-- -------------------------- -->
+
+<ion-content *ngIf="modo_Comidas">
+  
+  <ion-item>
+    <ion-label>NOMBRE</ion-label>
+  </ion-item>
+  <ion-item>
+    <ion-label>{{nombre_dieta}}</ion-label>
+  </ion-item>
+ 
+  <ion-list><!--Inicio de la lista de las 5 posibles comidas-->
+
+    <!--Inicio de desayuno-->
+    <div *ngIf="Desayuno_check">
+
+      <ion-item>
+        <ion-label>DESAYUNO</ion-label>
+        <ion-button slot="end" fill="outline" (click)="VerListaDesayuno()">{{mensaje_boton_uno}}</ion-button>
+        <ion-button slot="end" fill="outline" (click)="cambiarModoBuscar(0)">Agregar</ion-button>
+      </ion-item>
+      
+      <div *ngIf= "mostrar_lista_desayuno">
+        <ion-item *ngFor="let item of lista_desayuno">
+          <ion-label>Alimento:{{item.alimentoNombre}}<br>
+                     Calorias:{{item.calorias}}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Total:{{desayuno_total_cal}} calorias</ion-label>
+          </ion-item>
+      </div>
+
+    </div>
+
+    <!--Inicio de merienda-->
+    <div *ngIf="Merienda_check">
+
+      <ion-item>
+        <ion-label>MERIENDA</ion-label>
+        <ion-button slot="end" fill="outline" (click)="VerListaMerienda()">{{mensaje_boton_dos}}</ion-button>
+        <ion-button slot="end" fill="outline" (click)="cambiarModoBuscar(1)">Agregar</ion-button>
+      </ion-item>
+      
+      <div *ngIf="mostrar_lista_merienda">
+        <ion-item *ngFor="let item of lista_merienda">
+          <ion-label>Alimento:{{item.alimentoNombre}}<br>
+            Calorias:{{item.calorias}}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Total:{{merienda_total_cal}} calorias</ion-label>
+        </ion-item>
+      </div>
+
+    </div>
+
+    <!--Inicio de comida-->
+    <div *ngIf="Comida_check">
+    
+      <ion-item>
+        <ion-label>COMIDA</ion-label>
+        <ion-button slot="end" fill="outline" (click)="VerListaComida()">{{mensaje_boton_tres}}</ion-button>
+        <ion-button slot="end" fill="outline" (click)="cambiarModoBuscar(2)">Agregar</ion-button>
+      </ion-item>
+    
+      <div *ngIf="mostrar_lista_comida">
+        <ion-item *ngFor="let item of lista_comida">
+          <ion-label>Alimento:{{item.alimentoNombre}}<br>
+            Calorias:{{item.calorias}}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Total:{{comida_total_cal}} calorias</ion-label>
+        </ion-item>
+      </div>
+    
+    </div>
+
+    <!--Inicio de entrecomida-->
+    <div *ngIf="MediaComida_check">
+    
+      <ion-item>
+        <ion-label>MEDIACOMIDA</ion-label>
+        <ion-button slot="end" fill="outline" (click)="VerListaEntrecomida()">{{mensaje_boton_cuatro}}</ion-button>
+        <ion-button slot="end" fill="outline" (click)="cambiarModoBuscar(3)">Agregar</ion-button>
+      </ion-item>
+    
+      <div *ngIf="mostrar_lista_entrecomida">
+        <ion-item *ngFor="let item of lista_entrecomida">
+          <ion-label>Alimento:{{item.alimentoNombre}}<br>
+            Calorias:{{item.calorias}}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Total:{{entrecomida_total_cal}} calorias</ion-label>
+        </ion-item>
+      </div>
+      
+      
+    </div>
+    
+    <!--Inicio de cena-->
+    <div *ngIf="Cena_check">
+    
+      <ion-item>
+        <ion-label>CENA</ion-label>
+        <ion-button slot="end" fill="outline" (click)="VerListaCena()">{{mensaje_boton_cinco}}</ion-button>
+        <ion-button slot="end" fill="outline" (click)="cambiarModoBuscar(4)">Agregar</ion-button>
+      </ion-item>
+    
+      <div *ngIf="mostrar_lista_cena">
+        <ion-item *ngFor="let item of lista_cena">
+          <ion-label>Alimento:{{item.alimentoNombre}}<br>
+            Calorias:{{item.calorias}}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Total:{{cena_total_cal}} calorias</ion-label>
+        </ion-item>
+      </div>
+
+    </div>
+  </ion-list>
+
+  <ion-button *ngIf="modo_Comidas" (click)="cambiarModoConfiguracion()">REGRESO</ion-button>
+  
+</ion-content>
+
+<!-- ------------------- -->
+<!-- MODO BUCAR ALIMENTO -->
+<!-- ------------------- -->
+
+<ion-content *ngIf="modo_buscar">
+  <!--[(ngModel)]="alimentoABuscar" sirve para poder usar el texto ingresado en selccion de alimentos.page.ts, lo que esta entre comillas es el nombre de la variable que contine el texto, le puedes poner el nombre que sea-->
+  <ion-item>
+    <ion-label>
+      {{comida_seleccionada_actual}}
+    </ion-label>
+  </ion-item>
+
+  <ion-item>
+    <ion-button slot="end"  (click)="QuitarTextoRapidoAli()" color="light">X
+    </ion-button>
+    <ion-input [(ngModel)]="alimentoABuscar" placeholder="Ingrese el alimento"></ion-input>
+      
+  </ion-item>
+ 
+  <ion-item>
+    <ion-button slot="end"  (click)="QuitarTextoRapidoCant()" color="light">X</ion-button>
+    <ion-input [(ngModel)]="cantidad_comida" placeholder="Ingrese la cantidad"></ion-input> 
+   
+  </ion-item>
+
+  <ion-item>
+    <ion-checkbox color="primary" [disabled]="opcion_pz" [checked]="true" (click)="BloquearOpcionesPz()"></ion-checkbox>
+    <ion-label>gramos/mililitros</ion-label>
+  </ion-item>
+  <ion-item>
+    <ion-checkbox color="primary" [disabled]="opcion_gr_ml" [checked]="false" (click)="BloquearOpcionesGrML()"></ion-checkbox>
+    <ion-label>pieza</ion-label>
+  </ion-item>
+    
+  <ion-button (click)="ObtenerUnAlimento()">Mostrar alimento</ion-button>
+  <ion-button *ngIf="modo_buscar" (click)="AgregarAlimentosLista()">REGRESO</ion-button>
+ 
+  <ion-item-sliding *ngFor="let comida of comidas">
+
+    <ion-item>
+
+      <ion-label>
+        <p>Alimento: {{ comida.food.label }} <br></p>
+        <p *ngIf="opcion_gr_ml">Calorias:{{comida.food.nutrients.ENERC_KCAL/comida.measures[0].weight*cantidad_comida}}</p>
+        <p *ngIf="opcion_pz">Calorias:{{comida.food.nutrients.ENERC_KCAL*cantidad_comida}}</p>
+      </ion-label>
+      
+    </ion-item>
+
+    <ion-item-options side="end">
+      <ion-item-option color="primary" (click)="AgregarAlimento(comida.food.label,comida.food.nutrients.ENERC_KCAL*cantidad_comida,comida.food.nutrients.ENERC_KCAL/comida.measures[0].weight*cantidad_comida,cantidad_comida)">Agregar</ion-item-option>
+    </ion-item-options>
+
+  </ion-item-sliding>
+
+  
+
 </ion-content>
