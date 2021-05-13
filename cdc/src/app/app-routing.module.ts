@@ -19,10 +19,6 @@ const routes: Routes = [
     loadChildren: () => import('./paginas/configurar-dieta/configurar-dieta.module').then( m => m.ConfigurarDietaPageModule)
   },
   {
-    path: 'seleccion-alimentos',
-    loadChildren: () => import('./paginas/seleccion-alimentos/seleccion-alimentos.module').then( m => m.SeleccionAlimentosPageModule)
-  },
-  {
     path: 'historial',
     loadChildren: () => import('./paginas/historial/historial.module').then( m => m.HistorialPageModule)
   },
@@ -33,6 +29,14 @@ const routes: Routes = [
   {
     path: 'historial-alimentos',
     loadChildren: () => import('./paginas/historial-alimentos/historial-alimentos.module').then( m => m.HistorialAlimentosPageModule)
+  },
+  {
+    path: 'home',
+    loadChildren: () => import('./paginas/home/home.module').then( m => m.HomePageModule)
+  },
+  {
+    path: 'song:id',
+    loadChildren: () => import('./song/song.module').then( m => m.SongPageModule)
   }
 ];
 @NgModule({

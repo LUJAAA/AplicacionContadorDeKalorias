@@ -1,9 +1,49 @@
-<ion-header>
+<ion-content padding>
+  pesistencia de datos
+  <br>
+  <h1>notas</h1>
+  <ion-searchbar (ionInput)="getItems($evebt)"></ion-searchbar>
+  <ion-list>
+    <ion-item-sliding *ngFor="let item of notas">
+      <ion-item>
+        <!-- <ion-avatar></ion-avatar> -->    
+        <p>{{item.titulo}}<br>{{item.texto}}</p>
+      </ion-item>
+      <ion-item-options side="end">
+        <ion-button (click)="editar(item)"color="primary">
+            EDITAR
+        </ion-button>
+          <ion-button (click)="eliminar(item)" color="primary">
+            ELIMINAR
+          </ion-button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+    <ion-button (click)="AgregarNota()"color="primary">
+      Agregar
+    </ion-button>
+  
+</ion-content>
 
-  <!--Agrega color="success" para que se ponga de color verde el toolbar--> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<ion-header>
+
+  Agrega color="success" para que se ponga de color verde el toolbar 
   <ion-toolbar color="success">
 
-    <!--Agrega slot="start" para que el icono de regreso se ponga a la derecha-->
+   Agrega slot="start" para que el icono de regreso se ponga a la derecha
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/"></ion-back-button>
     </ion-buttons>
@@ -44,5 +84,5 @@
 
   </div>
 </div>
-</ion-content>
+</ion-content>-->
 
