@@ -23,7 +23,7 @@ const routes: Routes = [
     loadChildren: () => import('./paginas/historial/historial.module').then( m => m.HistorialPageModule)
   },
   {
-    path: 'historial-dietas',
+    path: 'historial-dietas',// cambiadooo
     loadChildren: () => import('./paginas/historial-dietas/historial-dietas.module').then( m => m.HistorialDietasPageModule)
   },
   {
@@ -31,12 +31,16 @@ const routes: Routes = [
     loadChildren: () => import('./paginas/historial-alimentos/historial-alimentos.module').then( m => m.HistorialAlimentosPageModule)
   },
   {
-    path: 'home',
-    loadChildren: () => import('./paginas/home/home.module').then( m => m.HomePageModule)
+    path: 'casa',
+    loadChildren: () => import('./casa/casa.module').then( m => m.CasaPageModule)
   },
   {
-    path: 'song:id',
+    path: 'song/id',//-------------------- poner el id en los demas por si no jala
     loadChildren: () => import('./song/song.module').then( m => m.SongPageModule)
+  },
+  {
+    path: 'home',
+    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
   }
 ];
 @NgModule({

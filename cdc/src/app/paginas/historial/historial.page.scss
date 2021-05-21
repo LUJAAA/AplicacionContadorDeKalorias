@@ -2,7 +2,7 @@
     display: flex;
     align-items: center;
     height: 100%;
-    background-color: #28ba62;
+    background: linear-gradient(to bottom, #AEE43D 0%, #779b2b 100%);
 }
 
 .contenedor
@@ -13,6 +13,9 @@
 .ion-card{
     width: 10px;
     box-shadow:none;
+}
+.btn-primary{
+    height: 45px;
 }
 
 

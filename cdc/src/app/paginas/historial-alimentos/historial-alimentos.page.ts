@@ -9,16 +9,16 @@ import { Alimentos } from '../../interfaces/alimento';
 })
 export class HistorialAlimentosPage implements OnInit {
 
-  /*alimentos: Alimentos[] = [];
+  alimentos: Alimentos[] = [];
   
   i: number = 0;
   periodoTiempo: string[] = ["SEMANAL", "MENSUAL", "ANUAL", "GLOBAL"];
-  alimentosSemanalPrueba:string[]=[]*/
+  alimentosSemanalPrueba:string[]=[]
   constructor(private alimentoservices: AlimentoService) { }
 
   ngOnInit() {}
 
-  /*Derecha()
+  Derecha()
   {
     if (this.i >= 3)
       this.i = 0;
@@ -31,5 +31,5 @@ export class HistorialAlimentosPage implements OnInit {
       this.i = 3;
     else
       this.i--;
-  }*/
+  }
 }

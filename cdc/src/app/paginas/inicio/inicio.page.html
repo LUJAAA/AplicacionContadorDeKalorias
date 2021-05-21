@@ -1,60 +1,22 @@
-<!--<ion-header>
-  <ion-toolbar>
-    <ion-title>Ionic 5 SQLite CRUD Example</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
-  <ion-list lines="full">
-    <form [formGroup]="mainForm" (ngSubmit)="storeData()">
-      <ion-item>
-        <ion-label position="floating">Artist name</ion-label>
-        <ion-input formControlName="artist" type="text" required></ion-input>
-      </ion-item>
+<div class="fondo">
+  <div class="editar-imagen">
+    <!--<img src="assets/imagenes/piña.png">falta imagen de piña -->
+  </div>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="10" offset="1">
+        <ion-button expand="full" color="primary" shape="round" class="btn-primary" routerLink='/configurar-dieta'>
+          <b>Crear dieta</b></ion-button>
+      </ion-col>
+    </ion-row>
 
-      <ion-item>
-        <ion-label position="floating">Song name</ion-label>
-        <ion-input formControlName="song" type="text" required>
-        </ion-input>
-      </ion-item>
+    <ion-row>
+      <ion-col size="10" offset="1">
+        <ion-button expand="full" fill="clear" routerLink='/historial'><b>Ver Historial</b></ion-button>
+      </ion-col>
+    </ion-row>
 
-      <ion-row>
-        <ion-col>
-          <ion-button type="submit" color="primary" shape="full" expand="block">
-            Add Song
-          </ion-button>
-        </ion-col>
-      </ion-row>
-    </form>
-  </ion-list>
-
-  <ion-list>
-    <ion-list-header>
-      Songs
-    </ion-list-header>
-
-    <ion-item lines="inset" *ngFor="let data of Data">
-      <ion-label>
-        <h5>{{data.artist_name}}</h5>
-        <p>{{data.song_name}}</p>
-      </ion-label>
-
-      <div class="item-note" item-end>
-        <ion-icon name="create" style="zoom:2.0" [routerLink]="['/song/', data.id]"></ion-icon>
-        <ion-icon name="trash" style="zoom:2.0" (click)="deleteSong(data.id)"></ion-icon>
-      </div>
-    </ion-item>
-  </ion-list>
-</ion-content>-->
-
-<ion-header>
-  <ion-toolbar>
-    <ion-title>inicio</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content>
-  <ion-button routerLink='/configurar-dieta'>Crear dieta</ion-button>
-  <ion-button routerLink='/historial'>Historial</ion-button>
-  <ion-button routerLink='/home'>Home</ion-button>
+  </ion-grid>
+</div>
 </ion-content>

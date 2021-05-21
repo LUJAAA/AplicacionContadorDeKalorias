@@ -31,7 +31,8 @@ export class SongPage implements OnInit {
   ngOnInit() {
     this.editForm = this.formBuilder.group({
       artist_name: [''],
-      song_name: ['']
+      song_name: [''],
+      dato_dos:['']
     })
   }
 

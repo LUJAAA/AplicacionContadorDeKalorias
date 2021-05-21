@@ -1,0 +1,70 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Ionic 5 SQLite CRUD Example</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+ 
+<!-- <ion-list lines="full">
+    <form [formGroup]="mainForm" (ngSubmit)="storeData()">
+      
+      <ion-item>
+        <ion-label position="floating">Artist name</ion-label>
+        <ion-input formControlName="artist" type="text" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Song name</ion-label>
+        <ion-input formControlName="song" type="text" required>
+        
+        </ion-input>
+      </ion-item>
+    
+      <ion-row>
+        <ion-col>
+          <ion-button type="submit" color="primary" shape="full" expand="block">
+            Add Song
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    
+    </form>
+        
+  </ion-list>-->
+  <ion-label>{{d_uno}}</ion-label>
+  <ion-label>{{d_dos}}</ion-label>
+  <ion-label>{{d_tres}}</ion-label>
+
+  <ion-list *ngFor="let item of lista">
+    <ion-label>{{item}}</ion-label>
+    <ion-button (click)="ingresarDatosLista(item)">Imprimir</ion-button>
+  </ion-list>
+  <ion-button (click)="storeDataVersionLuja()">Agregar</ion-button>
+  <ion-button (click)="storeDataVersionLuja2(item)">Agregarversion2</ion-button>
+  <ion-button (click)=" imprimirlista()">Imprimir</ion-button>
+ 
+
+  <ion-list>
+    <ion-list-header>
+      Songs
+    </ion-list-header>
+
+    <ion-item lines="inset" *ngFor="let data of Data">
+      <ion-label>
+        <h5>{{data.nombre_dieta}}</h5>
+        <p>{{data.calorias_total}}</p>
+        <p>{{data.comida}}</p>
+        <p>{{data.alimentoNombre}}</p>
+        <p>{{data.calorias}}</p>
+        <p>{{data.cantidad}}</p>
+        <p>{{data.fecha}}</p>
+      </ion-label>
+
+      <div class="item-note" item-end>
+        <ion-icon name="create" style="zoom:2.0" [routerLink]="['/song/', data.id]"></ion-icon>
+        <ion-icon name="trash" style="zoom:2.0" (click)="deleteSong(data.id)"></ion-icon>
+      </div>
+    </ion-item>
+  </ion-list>
+</ion-content>
