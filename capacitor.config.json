@@ -1,0 +1,13 @@
+{
+  "appId": "com.calorias.app",
+  "appName": "caloriasproyect",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    }
+  },
+  "cordova": {}
+}
