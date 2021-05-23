@@ -108,7 +108,6 @@ export class ConfigurarDietaPage implements OnInit {
       cantidad: [''],
       fecha: ['']
     })
-
   }
 
   /*
@@ -583,5 +582,4 @@ export class ConfigurarDietaPage implements OnInit {
       toast.present();
     })
   }
-
 }
