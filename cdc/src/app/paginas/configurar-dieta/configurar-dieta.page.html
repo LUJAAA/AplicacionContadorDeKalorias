@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar color="success">
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="/">
+      <ion-back-button (click)="cambiardepantallas()" routerLink='{{ruta}}'>
       </ion-back-button>
     </ion-buttons>
     <ion-title>CONFIGURARDIETA</ion-title>
@@ -163,11 +163,11 @@
         </div>
       </ion-list>
         <ion-button color="success" *ngIf="modo_Comidas" (click)="GuardarDieta()">Guardar</ion-button>
-      <ion-button color="success" *ngIf="modo_Comidas" (click)="cambiarModoConfiguracion()">REGRESO</ion-button>
+
    
 
-      
-      <!--<ion-list>
+      <!--
+      <ion-list>
         <ion-list-header>
           Songs
         </ion-list-header>
@@ -223,7 +223,7 @@
   </ion-item>
     
   <ion-button color="success" (click)="ObtenerUnAlimento()">Mostrar alimento</ion-button>
-  <ion-button color="success" *ngIf="modo_buscar" (click)="AgregarAlimentosLista()">REGRESO</ion-button>
+
  
   <ion-item-sliding *ngFor="let comida of comidas">
 

@@ -9,10 +9,10 @@ CREATE TABLE IF NOT EXISTS dietass(
     fecha TEXT
 );
 
-INSERT or IGNORE INTO dietass(id, nombre_dieta, calorias_total,comida,alimentoNombre,calorias,cantidad,fecha) 
+/*INSERT or IGNORE INTO dietass(id, nombre_dieta, calorias_total,comida,alimentoNombre,calorias,cantidad,fecha) 
 VALUES (0, 'Dieta1', '3000','Desayuno','pepsi','30','100','20/05/2021');
 INSERT or IGNORE INTO dietass(id, nombre_dieta, calorias_total,comida,alimentoNombre,calorias,cantidad,fecha) 
-VALUES (1, 'Dieta1', '3000','Desayuno','apple','20','10','20/05/2021');
+VALUES (1, 'Dieta1', '3000','Desayuno','apple','20','10','20/05/2021');*/
 
 /*CREATE TABLE IF NOT EXISTS Dietas(
     id INTEGER PRIMARY KEY AUTOINCREMENT,

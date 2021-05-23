@@ -24,7 +24,7 @@
           </ion-button>
         </ion-item>
       </ion-card>
-
+<!--<ion-button (click)="mostrarTablaAlimentos()">mostrar</ion-button>-->
       <ion-card class="tablaCabeza" color="secondary">
 
         <ion-grid>
@@ -33,13 +33,10 @@
               ALIMENTO
             </ion-col>
             <ion-col>
+              CANTIDAD
+            </ion-col>
+            <ion-col>
               CALORIAS
-            </ion-col>
-            <ion-col>
-              CANTID
-            </ion-col>
-            <ion-col>
-              FRECUENCIA
             </ion-col>
           </ion-row>
         </ion-grid>
@@ -47,25 +44,22 @@
       </ion-card>
 
       <ion-card class="tablaCuerpo" color="secondary">
-        <ion-grid>
-          <ion-row>
-            <ion-col class="ion-text-center">
-              Tocino
-            </ion-col>
-            <ion-col class="ion-text-center">
-              200 K
-            </ion-col>
-            <ion-col class="ion-text-center">
-              300 g
-            </ion-col>
-            <ion-col class="ion-text-center">
-              3
-            </ion-col>
-          </ion-row>
-        </ion-grid>
+        <ion-item *ngFor="let item of l_alimentos">
+          <ion-label>{{item.nombre}}</ion-label>
+          <ion-label>{{item.cantidad}}</ion-label>
+          <ion-label>{{item.calorias}}</ion-label>
+        </ion-item>
+      <ion-item color="secondary">
+        <ion-label >TOTAL: {{totalPorLista}} cal</ion-label>
+
+      </ion-item>
+
 
       </ion-card>
     </div>
+
+
+    
   </div>
 
 

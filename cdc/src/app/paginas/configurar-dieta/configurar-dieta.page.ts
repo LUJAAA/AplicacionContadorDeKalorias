@@ -79,6 +79,8 @@ export class ConfigurarDietaPage implements OnInit {
   listaglobal: string[] = ["xd"];
   i: number;
   x: number;
+  ruta: string = "/configurar-dieta";
+  pantalla: number = 0;
   // inyecto el servicio que llama a la api
   constructor(private alimentoservices: AlimentoService,
     /*private db: DbService,*/
@@ -106,24 +108,60 @@ export class ConfigurarDietaPage implements OnInit {
       cantidad: [''],
       fecha: ['']
     })
+
   }
 
   /*
   ■■■■■■■■■■■■■■■■■■■■■■■■■
   ██ funciones generales ██
   ■■■■■■■■■■■■■■■■■■■■■■■■■*/
-  
+
+  cambiardepantallas() {
+    if (this.pantalla == 0) {
+      this.ruta = "/";
+
+    }
+    else if (this.pantalla == 1) {
+      this.ruta = "/configurar-dieta";
+      this.modo_Comidas = false;
+      this.modo_buscar = false;
+      // El que queremos visualizar //
+      this.modo_configuracion = true;
+      this.pantalla = 0;
+    }
+    else if (this.pantalla == 2)
+    {
+      this.ruta = "/configurar-dieta";
+      this.modo_configuracion = false;
+      this.modo_buscar = false;
+      // El que queremos visualizar //
+      this.modo_Comidas = true;
+      this.pantalla = 1;////////////////
+    }
+    else {
+      this.AgregarAlimentosLista();
+      this.ruta = "/configurar-dieta";
+      this.modo_configuracion = false;
+      this.modo_Comidas = false;
+      // El que queremos visualizar //
+      this.modo_buscar = true;
+      this.pantalla = 2;
+    }
+  }
+
   cambiarModoConfiguracion() {
     this.modo_Comidas = false;
     this.modo_buscar = false;
     // El que queremos visualizar //
     this.modo_configuracion = true;
+    this.pantalla = 0;///////////////////
   }
   cambiarModoComidas() {
     this.modo_configuracion = false;
     this.modo_buscar = false;
     // El que queremos visualizar //
     this.modo_Comidas = true;
+    this.pantalla = 1;////////////////
   }
   cambiarModoBuscar(comidaSeleccionada: number) {
     this.lista_generica = [];
@@ -132,6 +170,7 @@ export class ConfigurarDietaPage implements OnInit {
     this.modo_Comidas = false;
     // El que queremos visualizar //
     this.modo_buscar = true;
+    this.pantalla = 2;
     // bloqueamos de una vez una opcion para que no se buguie, igual se buguea checarlo ********* 
     // this.BloquearOpcionesPz()
     this.opcion_pz = false;
@@ -287,7 +326,7 @@ export class ConfigurarDietaPage implements OnInit {
             this.lista_desayuno.push
               ({
                 alimentoNombre: this.lista_generica[x].alimentoNombre,
-                calorias: this.lista_generica[x].calorias,
+                calorias: parseInt(this.lista_generica[x].calorias),///----
                 cantidad: this.lista_generica[x].cantidad
               });
           }
@@ -302,7 +341,7 @@ export class ConfigurarDietaPage implements OnInit {
             this.lista_merienda.push
               ({
                 alimentoNombre: this.lista_generica[x].alimentoNombre,
-                calorias: this.lista_generica[x].calorias,
+                calorias: parseInt(this.lista_generica[x].calorias),
                 cantidad: this.lista_generica[x].cantidad
               });
           }
@@ -317,7 +356,7 @@ export class ConfigurarDietaPage implements OnInit {
             this.lista_comida.push
               ({
                 alimentoNombre: this.lista_generica[x].alimentoNombre,
-                calorias: this.lista_generica[x].calorias,
+                calorias: parseInt(this.lista_generica[x].calorias),
                 cantidad: this.lista_generica[x].cantidad
               });
           }
@@ -332,7 +371,7 @@ export class ConfigurarDietaPage implements OnInit {
             this.lista_entrecomida.push
               ({
                 alimentoNombre: this.lista_generica[x].alimentoNombre,
-                calorias: this.lista_generica[x].calorias,
+                calorias: parseInt(this.lista_generica[x].calorias),
                 cantidad: this.lista_generica[x].cantidad
               });
           }
@@ -347,7 +386,7 @@ export class ConfigurarDietaPage implements OnInit {
             this.lista_cena.push
               ({
                 alimentoNombre: this.lista_generica[x].alimentoNombre,
-                calorias: this.lista_generica[x].calorias,
+                calorias: parseInt(this.lista_generica[x].calorias),
                 cantidad: this.lista_generica[x].cantidad
               });
           }
@@ -377,10 +416,11 @@ export class ConfigurarDietaPage implements OnInit {
     var longitud_lista: number = 0;
  
     // obtenemos la fecha
-    var fechaa: string;
-    var date: Date = new Date();
-    fechaa = date.getDay() + "/" +date.getMonth() + "/" + date.getFullYear();
-    console.log(fechaa);
+    var fechaa = new Date();
+    // fechaa.getDate(); // descomentar
+    ////////////////////////////////////// modificamos la fecha para que sea de hace 2 semanas
+    fechaa.setDate(fechaa.getDate() - 200);
+    console.log(fechaa);// se cambiaron las fechas
     // borrarlista
     this.lista_global = [];
     // cargamos a una lista todos los datos
@@ -543,4 +583,5 @@ export class ConfigurarDietaPage implements OnInit {
       toast.present();
     })
   }
+
 }
