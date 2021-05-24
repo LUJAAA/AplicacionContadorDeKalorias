@@ -41,10 +41,7 @@
     "@angular/language-service": "~11.2.0",
     "@capacitor/cli": "2.4.7",
     "@ionic/angular-toolkit": "^3.1.1",
-<<<<<<< HEAD
-=======
     "@ionic/app-scripts": "^3.2.4",
->>>>>>> 67663ab7a10397196c345bda4708189933574d47
     "@types/jasmine": "~3.6.0",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "^12.11.1",
